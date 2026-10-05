@@ -1,0 +1,21 @@
+yaml
+name: Despliegue a Azure
+
+# ¿Cuándo se ejecuta? Cuando hacemos push a la rama main
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # El Agente (Linux)
+
+    steps:
+    # 1. Bajar el código del repositorio
+    - uses: actions/checkout@v2
+
+    # 2. Iniciar sesión en Azure usando el Secreto
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
