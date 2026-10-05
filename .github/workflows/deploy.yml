@@ -1,4 +1,4 @@
-yaml
+<> yaml 
 name: Despliegue a Azure
 
 # ¿Cuándo se ejecuta? Cuando hacemos push a la rama main
